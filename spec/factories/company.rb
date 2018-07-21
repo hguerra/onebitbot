@@ -1,5 +1,5 @@
 FactoryBot.define do
-    factory :company do
-       name FFaker::Lorem.word
-    end
+  factory :company do
+    name FFaker::Lorem.word
+  end
 end

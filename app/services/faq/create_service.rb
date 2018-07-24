@@ -12,7 +12,6 @@ module FaqModule
       return 'Hashtag Obrigatória' if @hashtags == nil
       Faq.transaction do
         faq = Faq.create(question: @question, answer: @answer, company: @company)
-        return "Hashtag Obrigatória" if @hashtags == nil
         @hashtags.split(/[\s,]+/).each do |hashtag|
           faq.hashtags << Hashtag.create(name: hashtag)
         end

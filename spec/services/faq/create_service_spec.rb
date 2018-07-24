@@ -6,7 +6,7 @@ describe FaqModule::CreateService do
 
     @question = FFaker::Lorem.sentence
     @answer = FFaker::Lorem.sentence
-    @hashtags = '#{FFaker::Lorem.word}, #{FFaker::Lorem.word}'
+    @hashtags = "#{FFaker::Lorem.word}, #{FFaker::Lorem.word}"
   end
 
   describe '#call' do

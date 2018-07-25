@@ -14,7 +14,7 @@ describe LinkModule::ListService do
       list_service = LinkModule::ListService.new({}, 'list')
 
       response = list_service.call
-      expect(response).to eq('Nada encontrado')
+      expect(response).to match('Nada encontrado')
     end
 
     it 'With two links, find links' do
@@ -25,15 +25,15 @@ describe LinkModule::ListService do
 
       response = list_service.call
 
-      expect(response).to eq(link1.link)
-      expect(response).to eq(link2.link)
+      expect(response).to match(link1.link)
+      expect(response).to match(link2.link)
     end
 
     it 'With invalid hashtag, return dont find message' do
-      list_service = LinkModule::ListService.new({ 'query': '' }, 'search_by_hashtag')
+      list_service = LinkModule::ListService.new({ 'query' => '' }, 'search_by_hashtag')
 
       response = list_service.call
-      expect(response).to eq('Nada encontrado')
+      expect(response).to match('Nada encontrado')
     end
 
     it 'With valid hashtag, find link in response' do
@@ -41,10 +41,10 @@ describe LinkModule::ListService do
       hashtag = create(:hashtag, company: @company)
       create(:link_hashtag, link: link, hashtag: hashtag)
 
-      list_service = LinkModule::ListService.new({ 'query': hashtag.name }, 'search_by_hashtag')
+      list_service = LinkModule::ListService.new({ 'query' => hashtag.name }, 'search_by_hashtag')
 
       response = list_service.call
-      expect(response).to eq(link.link)
+      expect(response).to match(link.link)
     end
   end
 end

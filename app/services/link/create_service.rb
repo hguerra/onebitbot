@@ -11,7 +11,7 @@ module LinkModule
       return 'Hashtag Obrigatória' unless @hashtags
 
       Link.transaction do
-        link = Link.create(link: @link)
+        link = Link.create(link: @link, company: @company)
         @hashtags.split(/[\s,]+/).each do |hashtag|
           link.hashtags << Hashtag.create(name: hashtag)
         end

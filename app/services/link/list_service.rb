@@ -23,7 +23,7 @@ module LinkModule
 
       return 'Nada encontrado' if links.nil? || links.count.zero?
 
-      response = "*Perguntas e Respostas* \n\n"
+      response = "*Links* \n\n"
       links.each do |f|
         response += "*#{f.id}* - "
         response += "*#{f.link}*\n"

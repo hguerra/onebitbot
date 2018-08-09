@@ -7,9 +7,9 @@ module LinkModule
     end
 
     def call
-      if @action == 'search'
+      if @action == 'search_links'
         links = Link.search(@query).where(company: @company)
-      elsif @action == 'search_by_hashtag'
+      elsif @action == 'search_links_by_hashtag'
         links = []
 
         @company.links.each do |link|
